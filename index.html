@@ -469,4 +469,203 @@ async function testarConexao() {
 }
 
 testarConexao();
-</script>
+// ===============================
+// NAVEGAÇÃO DO SISTEMA TUCASOL
+// ===============================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const main = document.querySelector("main");
+
+    if (!main) return;
+
+    // Guarda o Dashboard original
+    const dashboardOriginal = main.innerHTML;
+
+    // Identifica os botões do menu
+    const botoes = document.querySelectorAll("button, a");
+
+    botoes.forEach(function (botao) {
+
+        const texto = botao.innerText.trim().toLowerCase();
+
+        if (texto.includes("dashboard")) {
+            botao.addEventListener("click", function (e) {
+                e.preventDefault();
+                mostrarDashboard();
+            });
+        }
+
+        if (texto.includes("receitas")) {
+            botao.addEventListener("click", function (e) {
+                e.preventDefault();
+                mostrarPagina("Receitas");
+            });
+        }
+
+        if (texto.includes("despesas")) {
+            botao.addEventListener("click", function (e) {
+                e.preventDefault();
+                mostrarPagina("Despesas");
+            });
+        }
+
+        if (texto.includes("contas a receber")) {
+            botao.addEventListener("click", function (e) {
+                e.preventDefault();
+                mostrarPagina("Contas a Receber");
+            });
+        }
+
+        if (texto.includes("contas a pagar")) {
+            botao.addEventListener("click", function (e) {
+                e.preventDefault();
+                mostrarPagina("Contas a Pagar");
+            });
+        }
+
+        if (texto.includes("eventos")) {
+            botao.addEventListener("click", function (e) {
+                e.preventDefault();
+                mostrarPagina("Eventos");
+            });
+        }
+
+        if (texto.includes("doações")) {
+            botao.addEventListener("click", function (e) {
+                e.preventDefault();
+                mostrarPagina("Doações");
+            });
+        }
+
+        if (texto.includes("relatórios")) {
+            botao.addEventListener("click", function (e) {
+                e.preventDefault();
+                mostrarPagina("Relatórios");
+            });
+        }
+
+        if (texto.includes("configurações")) {
+            botao.addEventListener("click", function (e) {
+                e.preventDefault();
+                mostrarPagina("Configurações");
+            });
+        }
+
+    });
+
+
+    function mostrarDashboard() {
+        main.innerHTML = dashboardOriginal;
+    }
+
+
+    function mostrarPagina(titulo) {
+
+        main.innerHTML = `
+            <div style="
+                background:#ffffff;
+                border-radius:16px;
+                padding:30px;
+                margin:20px;
+                box-shadow:0 4px 15px rgba(0,0,0,0.08);
+            ">
+
+                <div style="
+                    display:flex;
+                    justify-content:space-between;
+                    align-items:center;
+                    margin-bottom:30px;
+                ">
+
+                    <div>
+                        <h1 style="margin:0;font-size:28px;">
+                            ${titulo}
+                        </h1>
+
+                        <p style="
+                            margin-top:8px;
+                            color:#777;
+                        ">
+                            Gerenciamento financeiro Tucasol
+                        </p>
+                    </div>
+
+                    <button
+                        id="btnVoltarDashboard"
+                        style="
+                            background:#172033;
+                            color:white;
+                            border:0;
+                            padding:12px 20px;
+                            border-radius:8px;
+                            cursor:pointer;
+                            font-size:14px;
+                        "
+                    >
+                        ← Voltar ao Dashboard
+                    </button>
+
+                </div>
+
+
+                <div style="
+                    background:#f7f8fa;
+                    border-radius:12px;
+                    padding:25px;
+                    border:1px solid #e5e7eb;
+                ">
+
+                    <h2 style="margin-top:0;">
+                        ${titulo}
+                    </h2>
+
+                    <p style="color:#666;">
+                        Esta área já está funcionando.
+                    </p>
+
+
+                    <button
+                        id="btnNovoRegistro"
+                        style="
+                            background:#198754;
+                            color:white;
+                            border:0;
+                            padding:13px 22px;
+                            border-radius:8px;
+                            cursor:pointer;
+                            font-size:15px;
+                            margin-top:10px;
+                        "
+                    >
+                        ＋ Novo registro
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+
+
+        document
+            .getElementById("btnVoltarDashboard")
+            .addEventListener("click", function () {
+                mostrarDashboard();
+            });
+
+
+        document
+            .getElementById("btnNovoRegistro")
+            .addEventListener("click", function () {
+
+                alert(
+                    "A tela de cadastro de " +
+                    titulo +
+                    " será integrada ao Google Sheets na próxima etapa."
+                );
+
+            });
+
+    }
+
+});
