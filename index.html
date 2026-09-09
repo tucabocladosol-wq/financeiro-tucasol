@@ -646,26 +646,164 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         `;
 
+document
+  .getElementById("btnVoltarDashboard")
+  .addEventListener("click", function () {
+    mostrarDashboard();
+  });
 
-        document
-            .getElementById("btnVoltarDashboard")
-            .addEventListener("click", function () {
-                mostrarDashboard();
-            });
+document
+  .getElementById("btnNovoRegistro")
+  .addEventListener("click", function () {
+    abrirFormularioRegistro(titulo);
+  });
 
+function abrirFormularioRegistro(tipo) {
 
-        document
-            .getElementById("btnNovoRegistro")
-            .addEventListener("click", function () {
+  const formulario = document.createElement("div");
 
-                alert(
-                    "A tela de cadastro de " +
-                    titulo +
-                    " será integrada ao Google Sheets na próxima etapa."
-                );
+  formulario.id = "modalRegistro";
 
-            });
+  formulario.innerHTML = `
+    <div style="
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.55);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+    ">
 
-    }
+      <div style="
+        background:white;
+        width:90%;
+        max-width:600px;
+        padding:30px;
+        border-radius:16px;
+        box-shadow:0 10px 40px rgba(0,0,0,.25);
+      ">
 
-});
+        <h2 style="margin-top:0;">
+          Novo registro - ${tipo}
+        </h2>
+
+        <label>Data</label>
+        <input
+          id="campoData"
+          type="date"
+          style="width:100%;padding:12px;margin:6px 0 15px;"
+        >
+
+        <label>Descrição</label>
+        <input
+          id="campoDescricao"
+          type="text"
+          placeholder="Ex.: Venda de ingresso"
+          style="width:100%;padding:12px;margin:6px 0 15px;"
+        >
+
+        <label>Categoria</label>
+        <input
+          id="campoCategoria"
+          type="text"
+          placeholder="Ex.: Evento"
+          style="width:100%;padding:12px;margin:6px 0 15px;"
+        >
+
+        <label>Evento</label>
+        <input
+          id="campoEvento"
+          type="text"
+          placeholder="Ex.: Espetinho do Seu Zé"
+          style="width:100%;padding:12px;margin:6px 0 15px;"
+        >
+
+        <label>Valor</label>
+        <input
+          id="campoValor"
+          type="number"
+          step="0.01"
+          placeholder="0,00"
+          style="width:100%;padding:12px;margin:6px 0 15px;"
+        >
+
+        <label>Status</label>
+        <select
+          id="campoStatus"
+          style="width:100%;padding:12px;margin:6px 0 20px;"
+        >
+          <option value="Pago">Pago</option>
+          <option value="Pendente">Pendente</option>
+          <option value="Em aberto">Em aberto</option>
+        </select>
+
+        <div style="display:flex;gap:10px;justify-content:flex-end;">
+
+          <button
+            id="btnCancelarRegistro"
+            style="
+              padding:12px 20px;
+              border:0;
+              border-radius:8px;
+              cursor:pointer;
+            "
+          >
+            Cancelar
+          </button>
+
+          <button
+            id="btnSalvarRegistro"
+            style="
+              padding:12px 20px;
+              border:0;
+              border-radius:8px;
+              background:#0b9f55;
+              color:white;
+              cursor:pointer;
+            "
+          >
+            Salvar registro
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+  `;
+
+  document.body.appendChild(formulario);
+
+  document
+    .getElementById("btnCancelarRegistro")
+    .addEventListener("click", function () {
+      formulario.remove();
+    });
+
+  document
+    .getElementById("btnSalvarRegistro")
+    .addEventListener("click", function () {
+
+      const registro = {
+        tipo: tipo,
+        data: document.getElementById("campoData").value,
+        descricao: document.getElementById("campoDescricao").value,
+        categoria: document.getElementById("campoCategoria").value,
+        evento: document.getElementById("campoEvento").value,
+        valor: document.getElementById("campoValor").value,
+        status: document.getElementById("campoStatus").value
+      };
+
+      if (!registro.data || !registro.descricao || !registro.valor) {
+        alert("Preencha pelo menos Data, Descrição e Valor.");
+        return;
+      }
+
+      console.log("Registro pronto para envio:", registro);
+
+      alert("Registro preenchido com sucesso!");
+
+      formulario.remove();
+    });
+}
