@@ -447,5 +447,26 @@
 
     </main>
 
-</body>
-</html>
+<script>
+const API_URL = "https://script.google.com/macros/s/AKfycbwWWFWn6nMHY-0tq48tmSrM72ZLgpoKR_N_BrvXqw5C9Wvy6tee78j5eryBOeTj693g1g/exec";
+
+async function testarConexao() {
+    try {
+        const resposta = await fetch(API_URL + "?action=teste");
+        const dados = await resposta.json();
+
+        console.log("Conexão com Google Sheets:", dados);
+
+        if (dados.sucesso) {
+            console.log("✅ Financeiro Tucasol conectado ao Google Sheets!");
+        } else {
+            console.error("❌ Erro:", dados.mensagem);
+        }
+
+    } catch (erro) {
+        console.error("❌ Não foi possível conectar ao Google Sheets:", erro);
+    }
+}
+
+testarConexao();
+</script>
