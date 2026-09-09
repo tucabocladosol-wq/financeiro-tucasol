@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +20,10 @@
             color: #222;
         }
 
+        /* =========================
+           SIDEBAR
+        ========================= */
+
         .sidebar {
             position: fixed;
             left: 0;
@@ -28,6 +33,7 @@
             background: #172033;
             color: white;
             padding: 25px 15px;
+            z-index: 1000;
         }
 
         .logo {
@@ -42,6 +48,8 @@
         .logo span {
             color: #f5c542;
             font-size: 13px;
+            display: block;
+            margin-top: 5px;
         }
 
         .menu button {
@@ -55,17 +63,27 @@
             margin-bottom: 5px;
             cursor: pointer;
             font-size: 15px;
+            transition: .2s;
         }
 
-        .menu button:hover,
+        .menu button:hover {
+            background: #263550;
+            color: white;
+        }
+
         .menu button.active {
             background: #263550;
             color: white;
         }
 
+        /* =========================
+           CONTEÚDO
+        ========================= */
+
         .main {
             margin-left: 240px;
             padding: 30px;
+            min-height: 100vh;
         }
 
         .header {
@@ -84,6 +102,10 @@
             margin-top: 5px;
         }
 
+        /* =========================
+           CARDS
+        ========================= */
+
         .cards {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -95,7 +117,7 @@
             background: white;
             padding: 22px;
             border-radius: 14px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, .06);
         }
 
         .card-title {
@@ -121,17 +143,25 @@
             color: #d89b00;
         }
 
+        /* =========================
+           SEÇÕES
+        ========================= */
+
         .section {
             background: white;
             padding: 25px;
             border-radius: 14px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, .06);
             margin-bottom: 25px;
         }
 
         .section h3 {
             margin-bottom: 20px;
         }
+
+        /* =========================
+           TABELAS
+        ========================= */
 
         table {
             width: 100%;
@@ -150,11 +180,16 @@
             font-size: 13px;
         }
 
+        /* =========================
+           STATUS
+        ========================= */
+
         .status {
             padding: 6px 10px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: bold;
+            display: inline-block;
         }
 
         .status-pago {
@@ -172,13 +207,162 @@
             color: #c33;
         }
 
+        /* =========================
+           PÁGINAS
+        ========================= */
+
+        .pagina {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, .08);
+        }
+
+        .pagina-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .pagina-header h1 {
+            font-size: 28px;
+        }
+
+        .pagina-header p {
+            color: #777;
+            margin-top: 8px;
+        }
+
+        .btn {
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: .2s;
+        }
+
+        .btn:hover {
+            opacity: .9;
+            transform: translateY(-1px);
+        }
+
+        .btn-voltar {
+            background: #172033;
+            color: white;
+        }
+
+        .btn-novo {
+            background: #198754;
+            color: white;
+            padding: 13px 22px;
+            font-size: 15px;
+        }
+
+        .area-pagina {
+            background: #f7f8fa;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .area-pagina h2 {
+            margin-bottom: 10px;
+        }
+
+        .area-pagina p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+
+        .modal {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .25);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal h2 {
+            margin-bottom: 25px;
+        }
+
+        .campo {
+            margin-bottom: 16px;
+        }
+
+        .campo label {
+            display: block;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .campo input,
+        .campo select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d5d9df;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .campo input:focus,
+        .campo select:focus {
+            border-color: #198754;
+        }
+
+        .modal-acoes {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 25px;
+        }
+
+        .btn-cancelar {
+            background: #e9ecef;
+            color: #333;
+        }
+
+        .btn-salvar {
+            background: #0b9f55;
+            color: white;
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
         @media (max-width: 900px) {
+
             .cards {
                 grid-template-columns: repeat(2, 1fr);
             }
+
         }
 
         @media (max-width: 600px) {
+
             .sidebar {
                 position: relative;
                 width: 100%;
@@ -198,14 +382,31 @@
                 display: block;
             }
 
+            .header > div:last-child {
+                margin-top: 15px;
+            }
+
             table {
                 font-size: 13px;
             }
+
+            .pagina-header {
+                display: block;
+            }
+
+            .btn-voltar {
+                margin-top: 20px;
+            }
+
         }
     </style>
 </head>
 
 <body>
+
+    <!-- =========================
+         MENU LATERAL
+    ========================= -->
 
     <aside class="sidebar">
 
@@ -216,39 +417,39 @@
 
         <div class="menu">
 
-            <button class="active">
+            <button data-page="Dashboard" class="active">
                 🏠 Dashboard
             </button>
 
-            <button>
+            <button data-page="Receitas">
                 💰 Receitas
             </button>
 
-            <button>
+            <button data-page="Despesas">
                 💸 Despesas
             </button>
 
-            <button>
+            <button data-page="Contas a Receber">
                 📥 Contas a Receber
             </button>
 
-            <button>
+            <button data-page="Contas a Pagar">
                 📤 Contas a Pagar
             </button>
 
-            <button>
+            <button data-page="Eventos">
                 🎪 Eventos
             </button>
 
-            <button>
+            <button data-page="Doações">
                 🎁 Doações
             </button>
 
-            <button>
+            <button data-page="Relatórios">
                 📊 Relatórios
             </button>
 
-            <button>
+            <button data-page="Configurações">
                 ⚙️ Configurações
             </button>
 
@@ -257,7 +458,11 @@
     </aside>
 
 
-    <main class="main">
+    <!-- =========================
+         CONTEÚDO PRINCIPAL
+    ========================= -->
+
+    <main class="main" id="main">
 
         <div class="header">
 
@@ -267,15 +472,18 @@
             </div>
 
             <div>
-                <strong>09/09/2026</strong>
+                <strong id="dataAtual"></strong>
             </div>
 
         </div>
 
 
+        <!-- CARDS -->
+
         <div class="cards">
 
             <div class="card">
+
                 <div class="card-title">
                     💰 Receitas do mês
                 </div>
@@ -283,10 +491,12 @@
                 <div class="card-value positive">
                     R$ 5.280,00
                 </div>
+
             </div>
 
 
             <div class="card">
+
                 <div class="card-title">
                     💸 Despesas do mês
                 </div>
@@ -294,10 +504,12 @@
                 <div class="card-value negative">
                     R$ 2.130,00
                 </div>
+
             </div>
 
 
             <div class="card">
+
                 <div class="card-title">
                     💵 Saldo atual
                 </div>
@@ -305,10 +517,12 @@
                 <div class="card-value">
                     R$ 3.150,00
                 </div>
+
             </div>
 
 
             <div class="card">
+
                 <div class="card-title">
                     ⏰ Em aberto
                 </div>
@@ -316,10 +530,13 @@
                 <div class="card-value warning">
                     R$ 1.850,00
                 </div>
+
             </div>
 
         </div>
 
+
+        <!-- ÚLTIMAS MOVIMENTAÇÕES -->
 
         <div class="section">
 
@@ -343,6 +560,7 @@
                 <tbody>
 
                     <tr>
+
                         <td>09/09/2026</td>
                         <td>Venda de ingresso</td>
                         <td>Evento</td>
@@ -354,10 +572,12 @@
                                 Pago
                             </span>
                         </td>
+
                     </tr>
 
 
                     <tr>
+
                         <td>08/09/2026</td>
                         <td>Compra de materiais</td>
                         <td>Material</td>
@@ -369,10 +589,12 @@
                                 Pendente
                             </span>
                         </td>
+
                     </tr>
 
 
                     <tr>
+
                         <td>07/09/2026</td>
                         <td>Doação</td>
                         <td>Doação</td>
@@ -384,6 +606,7 @@
                                 Pago
                             </span>
                         </td>
+
                     </tr>
 
                 </tbody>
@@ -392,6 +615,8 @@
 
         </div>
 
+
+        <!-- PRÓXIMOS VENCIMENTOS -->
 
         <div class="section">
 
@@ -414,6 +639,7 @@
                 <tbody>
 
                     <tr>
+
                         <td>12/09/2026</td>
                         <td>Fornecedor de materiais</td>
                         <td>Tucasol</td>
@@ -424,9 +650,12 @@
                                 Pendente
                             </span>
                         </td>
+
                     </tr>
 
+
                     <tr>
+
                         <td>15/09/2026</td>
                         <td>Pagamento fornecedor</td>
                         <td>Tucasol</td>
@@ -437,6 +666,7 @@
                                 Pendente
                             </span>
                         </td>
+
                     </tr>
 
                 </tbody>
@@ -447,365 +677,530 @@
 
     </main>
 
-<script>
-const API_URL = "https://script.google.com/macros/s/AKfycbwWWFWn6nMHY-0tq48tmSrM72ZLgpoKR_N_BrvXqw5C9Wvy6tee78j5eryBOeTj693g1g/exec";
 
-async function testarConexao() {
-    try {
-        const resposta = await fetch(API_URL + "?action=teste");
-        const dados = await resposta.json();
+    <script>
 
-        console.log("Conexão com Google Sheets:", dados);
+        /* =====================================================
+           CONFIGURAÇÃO GOOGLE APPS SCRIPT
+        ===================================================== */
 
-        if (dados.sucesso) {
-            console.log("✅ Financeiro Tucasol conectado ao Google Sheets!");
-        } else {
-            console.error("❌ Erro:", dados.mensagem);
+        const API_URL =
+            "https://script.google.com/macros/s/AKfycbwWWFWn6nMHY-0tq48tmSrM72ZLgpoKR_N_BrvXqw5C9Wvy6tee78j5eryBOeTj693g1g/exec";
+
+
+        /* =====================================================
+           INICIALIZAÇÃO
+        ===================================================== */
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            atualizarData();
+
+            configurarMenu();
+
+        });
+
+
+        /* =====================================================
+           DATA
+        ===================================================== */
+
+        function atualizarData() {
+
+            const elemento = document.getElementById("dataAtual");
+
+            if (!elemento) {
+                return;
+            }
+
+            const hoje = new Date();
+
+            const data = hoje.toLocaleDateString("pt-BR");
+
+            elemento.textContent = data;
+
         }
 
-    } catch (erro) {
-        console.error("❌ Não foi possível conectar ao Google Sheets:", erro);
-    }
-}
 
-testarConexao();
-// ===============================
-// NAVEGAÇÃO DO SISTEMA TUCASOL
-// ===============================
+        /* =====================================================
+           MENU
+        ===================================================== */
 
-document.addEventListener("DOMContentLoaded", function () {
+        function configurarMenu() {
 
-    const main = document.querySelector("main");
+            const botoes =
+                document.querySelectorAll(".menu button");
 
-    if (!main) return;
+            botoes.forEach(function (botao) {
 
-    // Guarda o Dashboard original
-    const dashboardOriginal = main.innerHTML;
+                botao.addEventListener("click", function () {
 
-    // Identifica os botões do menu
-    const botoes = document.querySelectorAll("button, a");
+                    const pagina =
+                        botao.getAttribute("data-page");
 
-    botoes.forEach(function (botao) {
+                    ativarBotaoMenu(botao);
 
-        const texto = botao.innerText.trim().toLowerCase();
+                    if (pagina === "Dashboard") {
 
-        if (texto.includes("dashboard")) {
-            botao.addEventListener("click", function (e) {
-                e.preventDefault();
-                mostrarDashboard();
+                        mostrarDashboard();
+
+                    } else {
+
+                        mostrarPagina(pagina);
+
+                    }
+
+                });
+
             });
+
         }
 
-        if (texto.includes("receitas")) {
-            botao.addEventListener("click", function (e) {
-                e.preventDefault();
-                mostrarPagina("Receitas");
+
+        /* =====================================================
+           BOTÃO ATIVO
+        ===================================================== */
+
+        function ativarBotaoMenu(botaoSelecionado) {
+
+            const botoes =
+                document.querySelectorAll(".menu button");
+
+            botoes.forEach(function (botao) {
+
+                botao.classList.remove("active");
+
             });
+
+            botaoSelecionado.classList.add("active");
+
         }
 
-        if (texto.includes("despesas")) {
-            botao.addEventListener("click", function (e) {
-                e.preventDefault();
-                mostrarPagina("Despesas");
-            });
+
+        /* =====================================================
+           DASHBOARD
+        ===================================================== */
+
+        function mostrarDashboard() {
+
+            location.reload();
+
         }
 
-        if (texto.includes("contas a receber")) {
-            botao.addEventListener("click", function (e) {
-                e.preventDefault();
-                mostrarPagina("Contas a Receber");
-            });
-        }
 
-        if (texto.includes("contas a pagar")) {
-            botao.addEventListener("click", function (e) {
-                e.preventDefault();
-                mostrarPagina("Contas a Pagar");
-            });
-        }
+        /* =====================================================
+           PÁGINAS
+        ===================================================== */
 
-        if (texto.includes("eventos")) {
-            botao.addEventListener("click", function (e) {
-                e.preventDefault();
-                mostrarPagina("Eventos");
-            });
-        }
+        function mostrarPagina(titulo) {
 
-        if (texto.includes("doações")) {
-            botao.addEventListener("click", function (e) {
-                e.preventDefault();
-                mostrarPagina("Doações");
-            });
-        }
+            const main =
+                document.getElementById("main");
 
-        if (texto.includes("relatórios")) {
-            botao.addEventListener("click", function (e) {
-                e.preventDefault();
-                mostrarPagina("Relatórios");
-            });
-        }
-
-        if (texto.includes("configurações")) {
-            botao.addEventListener("click", function (e) {
-                e.preventDefault();
-                mostrarPagina("Configurações");
-            });
-        }
-
-    });
+            if (!main) {
+                return;
+            }
 
 
-    function mostrarDashboard() {
-        main.innerHTML = dashboardOriginal;
-    }
+            main.innerHTML = `
+
+                <div class="pagina">
+
+                    <div class="pagina-header">
+
+                        <div>
+
+                            <h1>${titulo}</h1>
+
+                            <p>
+                                Gerenciamento financeiro Tucasol
+                            </p>
+
+                        </div>
 
 
-    function mostrarPagina(titulo) {
+                        <button
+                            class="btn btn-voltar"
+                            id="btnVoltarDashboard"
+                        >
+                            ← Voltar ao Dashboard
+                        </button>
 
-        main.innerHTML = `
-            <div style="
-                background:#ffffff;
-                border-radius:16px;
-                padding:30px;
-                margin:20px;
-                box-shadow:0 4px 15px rgba(0,0,0,0.08);
-            ">
-
-                <div style="
-                    display:flex;
-                    justify-content:space-between;
-                    align-items:center;
-                    margin-bottom:30px;
-                ">
-
-                    <div>
-                        <h1 style="margin:0;font-size:28px;">
-                            ${titulo}
-                        </h1>
-
-                        <p style="
-                            margin-top:8px;
-                            color:#777;
-                        ">
-                            Gerenciamento financeiro Tucasol
-                        </p>
                     </div>
 
-                    <button
-                        id="btnVoltarDashboard"
-                        style="
-                            background:#172033;
-                            color:white;
-                            border:0;
-                            padding:12px 20px;
-                            border-radius:8px;
-                            cursor:pointer;
-                            font-size:14px;
-                        "
-                    >
-                        ← Voltar ao Dashboard
-                    </button>
+
+                    <div class="area-pagina">
+
+                        <h2>
+                            ${titulo}
+                        </h2>
+
+                        <p>
+                            Gerencie os registros de ${titulo.toLowerCase()} do Tucasol.
+                        </p>
+
+
+                        <button
+                            class="btn btn-novo"
+                            id="btnNovoRegistro"
+                        >
+                            ＋ Novo registro
+                        </button>
+
+                    </div>
 
                 </div>
 
+            `;
 
-                <div style="
-                    background:#f7f8fa;
-                    border-radius:12px;
-                    padding:25px;
-                    border:1px solid #e5e7eb;
-                ">
 
-                    <h2 style="margin-top:0;">
-                        ${titulo}
+            const btnVoltar =
+                document.getElementById(
+                    "btnVoltarDashboard"
+                );
+
+
+            if (btnVoltar) {
+
+                btnVoltar.addEventListener(
+                    "click",
+                    function () {
+
+                        location.reload();
+
+                    }
+                );
+
+            }
+
+
+            const btnNovo =
+                document.getElementById(
+                    "btnNovoRegistro"
+                );
+
+
+            if (btnNovo) {
+
+                btnNovo.addEventListener(
+                    "click",
+                    function () {
+
+                        abrirFormularioRegistro(titulo);
+
+                    }
+                );
+
+            }
+
+        }
+
+
+        /* =====================================================
+           FORMULÁRIO
+        ===================================================== */
+
+        function abrirFormularioRegistro(tipo) {
+
+            const formulario =
+                document.createElement("div");
+
+
+            formulario.className =
+                "modal-overlay";
+
+
+            formulario.id =
+                "modalRegistro";
+
+
+            formulario.innerHTML = `
+
+                <div class="modal">
+
+                    <h2>
+                        Novo registro - ${tipo}
                     </h2>
 
-                    <p style="color:#666;">
-                        Esta área já está funcionando.
-                    </p>
+
+                    <div class="campo">
+
+                        <label>
+                            Data
+                        </label>
+
+                        <input
+                            id="campoData"
+                            type="date"
+                        >
+
+                    </div>
 
 
-                    <button
-                        id="btnNovoRegistro"
-                        style="
-                            background:#198754;
-                            color:white;
-                            border:0;
-                            padding:13px 22px;
-                            border-radius:8px;
-                            cursor:pointer;
-                            font-size:15px;
-                            margin-top:10px;
-                        "
-                    >
-                        ＋ Novo registro
-                    </button>
+                    <div class="campo">
+
+                        <label>
+                            Descrição
+                        </label>
+
+                        <input
+                            id="campoDescricao"
+                            type="text"
+                            placeholder="Ex.: Venda de ingresso"
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label>
+                            Categoria
+                        </label>
+
+                        <input
+                            id="campoCategoria"
+                            type="text"
+                            placeholder="Ex.: Evento"
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label>
+                            Evento
+                        </label>
+
+                        <input
+                            id="campoEvento"
+                            type="text"
+                            placeholder="Ex.: Espetinho do Seu Zé"
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label>
+                            Valor
+                        </label>
+
+                        <input
+                            id="campoValor"
+                            type="number"
+                            step="0.01"
+                            min="0"
+                            placeholder="0,00"
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label>
+                            Status
+                        </label>
+
+                        <select id="campoStatus">
+
+                            <option value="Pago">
+                                Pago
+                            </option>
+
+                            <option value="Pendente">
+                                Pendente
+                            </option>
+
+                            <option value="Em aberto">
+                                Em aberto
+                            </option>
+
+                            <option value="Atrasado">
+                                Atrasado
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="modal-acoes">
+
+                        <button
+                            class="btn btn-cancelar"
+                            id="btnCancelarRegistro"
+                        >
+                            Cancelar
+                        </button>
+
+
+                        <button
+                            class="btn btn-salvar"
+                            id="btnSalvarRegistro"
+                        >
+                            Salvar registro
+                        </button>
+
+                    </div>
 
                 </div>
 
-            </div>
-        `;
+            `;
 
-document
-  .getElementById("btnVoltarDashboard")
-  .addEventListener("click", function () {
-    mostrarDashboard();
-  });
 
-document
-  .getElementById("btnNovoRegistro")
-  .addEventListener("click", function () {
-    abrirFormularioRegistro(titulo);
-  });
+            document.body.appendChild(formulario);
 
-function abrirFormularioRegistro(tipo) {
 
-  const formulario = document.createElement("div");
+            /* CANCELAR */
 
-  formulario.id = "modalRegistro";
+            document
+                .getElementById("btnCancelarRegistro")
+                .addEventListener(
+                    "click",
+                    function () {
 
-  formulario.innerHTML = `
-    <div style="
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.55);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-    ">
+                        formulario.remove();
 
-      <div style="
-        background:white;
-        width:90%;
-        max-width:600px;
-        padding:30px;
-        border-radius:16px;
-        box-shadow:0 10px 40px rgba(0,0,0,.25);
-      ">
+                    }
+                );
 
-        <h2 style="margin-top:0;">
-          Novo registro - ${tipo}
-        </h2>
 
-        <label>Data</label>
-        <input
-          id="campoData"
-          type="date"
-          style="width:100%;padding:12px;margin:6px 0 15px;"
-        >
+            /* SALVAR */
 
-        <label>Descrição</label>
-        <input
-          id="campoDescricao"
-          type="text"
-          placeholder="Ex.: Venda de ingresso"
-          style="width:100%;padding:12px;margin:6px 0 15px;"
-        >
+            document
+                .getElementById("btnSalvarRegistro")
+                .addEventListener(
+                    "click",
+                    function () {
 
-        <label>Categoria</label>
-        <input
-          id="campoCategoria"
-          type="text"
-          placeholder="Ex.: Evento"
-          style="width:100%;padding:12px;margin:6px 0 15px;"
-        >
+                        salvarRegistro(tipo, formulario);
 
-        <label>Evento</label>
-        <input
-          id="campoEvento"
-          type="text"
-          placeholder="Ex.: Espetinho do Seu Zé"
-          style="width:100%;padding:12px;margin:6px 0 15px;"
-        >
+                    }
+                );
 
-        <label>Valor</label>
-        <input
-          id="campoValor"
-          type="number"
-          step="0.01"
-          placeholder="0,00"
-          style="width:100%;padding:12px;margin:6px 0 15px;"
-        >
+        }
 
-        <label>Status</label>
-        <select
-          id="campoStatus"
-          style="width:100%;padding:12px;margin:6px 0 20px;"
-        >
-          <option value="Pago">Pago</option>
-          <option value="Pendente">Pendente</option>
-          <option value="Em aberto">Em aberto</option>
-        </select>
 
-        <div style="display:flex;gap:10px;justify-content:flex-end;">
+        /* =====================================================
+           SALVAR REGISTRO
+        ===================================================== */
 
-          <button
-            id="btnCancelarRegistro"
-            style="
-              padding:12px 20px;
-              border:0;
-              border-radius:8px;
-              cursor:pointer;
-            "
-          >
-            Cancelar
-          </button>
+        async function salvarRegistro(tipo, formulario) {
 
-          <button
-            id="btnSalvarRegistro"
-            style="
-              padding:12px 20px;
-              border:0;
-              border-radius:8px;
-              background:#0b9f55;
-              color:white;
-              cursor:pointer;
-            "
-          >
-            Salvar registro
-          </button>
+            const data =
+                document.getElementById(
+                    "campoData"
+                ).value;
 
-        </div>
 
-      </div>
+            const descricao =
+                document.getElementById(
+                    "campoDescricao"
+                ).value.trim();
 
-    </div>
-  `;
 
-  document.body.appendChild(formulario);
+            const categoria =
+                document.getElementById(
+                    "campoCategoria"
+                ).value.trim();
 
-  document
-    .getElementById("btnCancelarRegistro")
-    .addEventListener("click", function () {
-      formulario.remove();
-    });
 
-  document
-    .getElementById("btnSalvarRegistro")
-    .addEventListener("click", function () {
+            const evento =
+                document.getElementById(
+                    "campoEvento"
+                ).value.trim();
 
-      const registro = {
-        tipo: tipo,
-        data: document.getElementById("campoData").value,
-        descricao: document.getElementById("campoDescricao").value,
-        categoria: document.getElementById("campoCategoria").value,
-        evento: document.getElementById("campoEvento").value,
-        valor: document.getElementById("campoValor").value,
-        status: document.getElementById("campoStatus").value
-      };
 
-      if (!registro.data || !registro.descricao || !registro.valor) {
-        alert("Preencha pelo menos Data, Descrição e Valor.");
-        return;
-      }
+            const valor =
+                document.getElementById(
+                    "campoValor"
+                ).value;
 
-      console.log("Registro pronto para envio:", registro);
 
-      alert("Registro preenchido com sucesso!");
+            const status =
+                document.getElementById(
+                    "campoStatus"
+                ).value;
 
-      formulario.remove();
-    });
-}
 
-    
+            /* VALIDAÇÃO */
+
+            if (!data) {
+
+                alert("Informe a data.");
+
+                return;
+
+            }
+
+
+            if (!descricao) {
+
+                alert("Informe a descrição.");
+
+                return;
+
+            }
+
+
+            if (!valor) {
+
+                alert("Informe o valor.");
+
+                return;
+
+            }
+
+
+            const registro = {
+
+                tipo: tipo,
+
+                data: data,
+
+                descricao: descricao,
+
+                categoria: categoria,
+
+                evento: evento,
+
+                valor: valor,
+
+                status: status
+
+            };
+
+
+            console.log(
+                "Registro:",
+                registro
+            );
+
+
+            /*
+             * POR ENQUANTO:
+             * Apenas confirma o cadastro.
+             *
+             * Na próxima etapa vamos ligar
+             * este envio ao Google Sheets.
+             */
+
+            alert(
+                "Registro preenchido com sucesso!"
+            );
+
+
+            formulario.remove();
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
